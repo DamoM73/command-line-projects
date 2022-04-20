@@ -1,6 +1,10 @@
 import random
 
+
 def get_word():
+    """
+    Returns a randmo five-letter word from the dictionary file
+    """
     # open word list
     with open("dictionary.txt", "r") as word_file:
         words = word_file.read().splitlines()
@@ -9,14 +13,22 @@ def get_word():
         word = random.choice(words)
         if len(word) == 5:
             return word.upper()
+
         
 def word_to_list(word):
+    """
+    Accepts a words and returns it as a list 
+    """
     temp = []
     for letter in word:
         temp.append(letter)
     return temp
 
+
 def get_guess():
+    """
+    Returns a five letter word
+    """
     while True:
         guess = input("> ").upper()
         if len(guess) == 5:
@@ -27,8 +39,6 @@ def get_guess():
 
 # --- Game Variables --- #
 word = word_to_list(get_word())
-
-print(word)
 guesses = []
 running = True
 
@@ -41,6 +51,7 @@ while running:
         print("\nWINNER!")
         running = False
     else:
+        # identify correct letters, misplaced letters and incorrect letters
         temp = []
         for index in range(5):
             if guess[index] == word[index]:
@@ -54,6 +65,7 @@ while running:
         # print guesses
         for line in guesses:
             print("".join(line))
+            print("")
             
         # check for loss
         if len(guesses) == 6:
