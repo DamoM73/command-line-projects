@@ -1,5 +1,3 @@
-from black import main
-
 def main_menu():
     print("Do you wish to encrypt or decrypt or quit?")
     while True:
