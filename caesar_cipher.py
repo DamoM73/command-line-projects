@@ -2,10 +2,10 @@ from tkinter import E
 
 
 def main_menu():
-    print("Do you wish to encrypt or decrypt or quit?")
+    print("Do you wish to encrypt, decrypt, crack or quit?")
     while True:
-        response = input("Choose E D or Q > ").upper()
-        if response in ("E","D","Q"):
+        response = input("Choose E D C or Q > ").upper()
+        if response in ("E","D", "C", "Q"):
             return response
         print("Please choose E D or Q\n")
     
@@ -52,11 +52,18 @@ while option != "Q":
     
     # get message details
     message = get_message()
-    key = get_key()
+    
+    # get key for encrypting and decrypting
+    if option == "E" or option == "D":
+        key = get_key()
     
     # adjust for decoding
     if option == "D":
         key = key * -1
     
     # endcode / decode and output
-    print(shift_letters(message,key))
+    if option == "E" or option == "D":
+        print(shift_letters(message,key))
+    elif option == "C":
+        for key in range(26):
+            print(shift_letters(message,key))
