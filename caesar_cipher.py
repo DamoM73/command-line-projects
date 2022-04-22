@@ -7,6 +7,7 @@ def main_menu():
         response = input("Choose E D or Q > ").upper()
         if response in ("E","D","Q"):
             return response
+        print("Please choose E D or Q\n")
     
 
 def get_message():
@@ -28,8 +29,11 @@ def get_key():
 def shift_letters(message, key):
     new_message = ""
     for char in message:
-        pos = SYMBOLS.index(char)
-        new_message = new_message + SYMBOLS[(pos + key)%26]
+        if char == " ":
+            new_message += " "
+        else:
+            pos = SYMBOLS.index(char)
+            new_message = new_message + SYMBOLS[(pos + key)%26]
     return new_message
         
     
@@ -46,9 +50,13 @@ option = ""
 while option != "Q":
     option = main_menu()
     
-    # encoding
-    if option == "E":
-        message = get_message()
-        key = get_key()
-        print(shift_letters(message,key))
-            
+    # get message details
+    message = get_message()
+    key = get_key()
+    
+    # adjust for decoding
+    if option == "D":
+        key = key * -1
+    
+    # endcode / decode and output
+    print(shift_letters(message,key))
