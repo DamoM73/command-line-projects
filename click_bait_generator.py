@@ -4,7 +4,7 @@ import random
 OBJECT_PRONOUNS = ['Her', 'Him', 'Them']
 POSSESIVE_PRONOUNS = ['Her', 'His', 'Their']
 PERSONAL_PRONOUNS = ['She', 'He', 'They']
-STATES = ['Queensland', 'New South Walse', 'Victoria', 'South Australian', 'Tasmania',
+STATES = ['Queensland', 'New South Wales', 'Victoria', 'South Australian', 'Tasmania',
            'Western Australian', 'Nothern Territory', 'ACT']
 NOUNS = ['Athlete', 'Clown', 'Shovel', 'Paleo Diet', 'Doctor', 'Parent',
           'Cat', 'Dog', 'Chicken', 'Robot', 'Video Game', 'Avocado',
